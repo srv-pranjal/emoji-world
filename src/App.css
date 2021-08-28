@@ -1,38 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Hina+Mincho&display=swap');
+
 .App {
   text-align: center;
+  margin: auto;
+  
+}
+h1{
+  text-transform:uppercase;
+  background-image:linear-gradient(90deg,#fde400,#ff0808);
+   background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+   color:transparent;
+}
+input {
+  margin: 0 1rem;
+  padding: 1rem;
+  width: 80vw;
+  font-size: 1.3rem;
+  opacity: 0.8;
+  border-radius: 20px;
+  border: 2px solid #9800fd;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+span {
+  cursor: pointer;
+  font-size: 2.5rem;
+  margin: 1rem 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.emoji-container{
+  width: 40%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  color: #fff;
+  background-image:linear-gradient(90deg,#efff08,#fff);
+   background-clip: text;
+  -moz-background-clip: text;
+  -webkit-background-clip: text;
+   color:transparent;
+   font-family: 'Hina Mincho', serif;
+   padding: 0 0.5rem;
+   letter-spacing: 1.5px;
+}
+
+p{
+  padding: 0 0.5rem;
+  font-size: 1.3rem;
+  color: #fde400;
+  font-family: 'Hina Mincho', serif;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+::placeholder{
+  font-size: 1rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+@media(max-width:776px){
+  .emoji-container{
+    width: 60%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+@media(max-width:500px){
+  .emoji-container{
+    width: 80%;
   }
 }
