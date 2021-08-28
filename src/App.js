@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import emojiDictionary from "./emoji.js";
+import EmojiList from "./emojiList";
+const emojisWeKnow = Object.keys(emojiDictionary).slice(0, 12);
 
-function App() {
+
+export default function App() {
+  const defaultMessage = "Emoji Meaning will appear Here";
+  const [meaning, setMeaning] = useState(defaultMessage);
+  function getMeaning(inputValue) {
+    if (inputValue === "") return defaultMessage;
+    else if (inputValue in emojiDictionary) return emojiDictionary[inputValue];
+    else return "Sorry! This emoticon is not present in our DATABASE";
+  }
+
+  function inputHandler(event) {
+    setMeaning(getMeaning(event.target.value));
+  }
+
+  function emojiClickHandler(inputValue) {
+    setMeaning(getMeaning(inputValue));
+
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Know Your Emoticons</h1>
+      <input onChange={inputHandler} placeholder="Paste your emoji here"/>
+      <div>
+        <h3>{meaning}</h3>
+      </div>
+      <EmojiList emojisWeKnow={emojisWeKnow} emojiClickHandler={emojiClickHandler} />
+      <p>You can also TAP on the emojis above to see the meaning</p>
     </div>
   );
 }
-
-export default App;
